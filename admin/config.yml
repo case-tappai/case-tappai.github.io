@@ -2,10 +2,7 @@ backend:
   name: github
   repo: case-peatai/case-peatai.github.io
   branch: main
-  # Authenticates lab members via their personal GitHub accounts.
-  # Requires Netlify Identity — see setup instructions below.
-  auth_type: implicit
-  app_id: 6063cc23-ab62-4e71-99d4-f0f3dddd453c
+  site_domain: case-peatai-cms.netlify.app
 
 # Where uploaded images and PDFs are saved
 media_folder: "assets/images"
