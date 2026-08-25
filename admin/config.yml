@@ -1,0 +1,398 @@
+backend:
+  name: github
+  repo: case-peatai/case-peatai.github.io
+  branch: main
+  # Authenticates lab members via their personal GitHub accounts.
+  # Requires Netlify Identity — see setup instructions below.
+  auth_type: implicit
+  app_id: 6063cc23-ab62-4e71-99d4-f0f3dddd453c
+
+# Where uploaded images and PDFs are saved
+media_folder: "assets/images"
+public_folder: "/assets/images"
+
+# The CMS UI will be at https://case-peatai.github.io/admin/
+site_url: https://case-peatai.github.io
+
+collections:
+  # ===========================================================================
+  # PEOPLE
+  # ===========================================================================
+  - name: "people"
+    label: "People"
+    label_singular: "Person"
+    folder: "_people"
+    create: true
+    slug: "{{fields.slug}}"
+    # Sort by name in the CMS list view
+    sortable_fields: ["name", "type", "level"]
+    summary: "{{name}} — {{role}}"
+
+    fields:
+      # Hidden field — always "profile", never changes
+      - { label: "Layout", name: "layout", widget: "hidden", default: "profile" }
+
+      - label: "Full Name"
+        name: "name"
+        widget: "string"
+        hint: "Your name as it should appear on the site."
+
+      - label: "Profile Slug"
+        name: "slug"
+        widget: "string"
+        hint: "Lowercase, hyphens only. Must be unique. Example: jane-doe. This becomes your profile URL: /team/jane-doe/"
+        pattern:
+          - "^[a-z0-9-]+$"
+          - "Lowercase letters, numbers, and hyphens only"
+
+      - label: "Type"
+        name: "type"
+        widget: "select"
+        options:
+          - { label: "Faculty", value: "faculty" }
+          - { label: "Researcher / Student", value: "researcher" }
+        default: "researcher"
+
+      - label: "Level"
+        name: "level"
+        widget: "select"
+        hint: "Only required for researchers and students."
+        required: false
+        options:
+          - { label: "PhD Student", value: "PHD" }
+          - { label: "Master's Student", value: "MS" }
+          - { label: "Undergraduate", value: "UG" }
+          - { label: "Staff", value: "STAFF" }
+        default: "PHD"
+
+      - label: "Role / Title"
+        name: "role"
+        widget: "string"
+        hint: "Appears under your name. Example: PhD Student, AI Researcher"
+
+      # --- Contact ---
+      - label: "Email"
+        name: "email"
+        widget: "string"
+        required: false
+
+      - label: "Phone"
+        name: "phone"
+        widget: "string"
+        required: false
+        hint: "Faculty only. Example: 216.368.0171"
+
+      - label: "Office"
+        name: "office"
+        widget: "string"
+        required: false
+        hint: "Faculty only. Example: 803D Olin Building"
+
+      # --- Profile Photo ---
+      - label: "Profile Photo"
+        name: "image"
+        widget: "image"
+        required: false
+        hint: "Square crop recommended, at least 400×400px. Saved to /assets/images/"
+        media_folder: "/assets/images"
+        public_folder: "/assets/images"
+
+      # --- Social / External URLs ---
+      - label: "Department Page URL"
+        name: "dept_url"
+        widget: "string"
+        required: false
+        hint: "Faculty only. Full URL to department directory page."
+
+      - label: "Personal Site / University Directory"
+        name: "personal_site"
+        widget: "string"
+        required: false
+        hint: "Full URL. Example: https://case.edu/engineering/..."
+
+      - label: "Twitter / X URL"
+        name: "twitter"
+        widget: "string"
+        required: false
+        hint: "Full URL. Example: https://x.com/yourhandle"
+
+      - label: "LinkedIn URL"
+        name: "linkedin"
+        widget: "string"
+        required: false
+        hint: "Full URL. Example: https://www.linkedin.com/in/yourname"
+
+      - label: "GitHub URL"
+        name: "github"
+        widget: "string"
+        required: false
+        hint: "Full URL. Example: https://github.com/yourhandle"
+
+      - label: "Google Scholar URL"
+        name: "google_scholar"
+        widget: "string"
+        required: false
+        hint: "Full URL to your Google Scholar profile."
+
+      # --- Profile Content ---
+      - label: "Funding Highlight"
+        name: "funding"
+        widget: "string"
+        required: false
+        hint: "Faculty only. Short sentence shown prominently. Example: Over $80M in external research funding."
+
+      - label: "Intro"
+        name: "intro"
+        widget: "markdown"
+        required: false
+        hint: "1-2 sentences shown permanently above the tabs. Supports links."
+        minimal: true
+
+      - label: "Bio"
+        name: "bio"
+        widget: "markdown"
+        required: false
+        hint: "Full biography shown in the Bio tab. Can be multiple paragraphs."
+
+      - label: "Research Summary"
+        name: "research_summary"
+        widget: "string"
+        required: false
+        hint: "Brief description of your research focus. Shown at top of Research tab."
+
+      - label: "Publications Summary"
+        name: "publications_summary"
+        widget: "string"
+        required: false
+        hint: "Faculty only. Short note above publications list. Supports markdown links."
+
+      - label: "Teaching Information"
+        name: "teaching_interests"
+        widget: "string"
+        required: false
+
+      # --- Research Areas ---
+      - label: "Research Areas"
+        name: "research_areas"
+        widget: "list"
+        required: false
+        hint: "Add each research area as a separate item."
+        field:
+          label: "Area"
+          name: "area"
+          widget: "select"
+          options:
+            - "High Performance Computing"
+            - "Artificial Intelligence"
+            - "Quantum Computing"
+            - "Healthcare & Medical Imaging"
+            - "Trustworthy AI"
+            - "Data Science"
+            - "Computer Vision"
+            - "Natural Language Processing"
+            - "Robotics"
+            - "Cybersecurity"
+
+      # --- Multi-Institutional Projects ---
+      - label: "Multi-Institutional Projects"
+        name: "multi_institutional_projects"
+        widget: "list"
+        required: false
+        hint: "Faculty only. External sponsored projects with links."
+        fields:
+          - { label: "Project Name", name: "name", widget: "string" }
+          - { label: "Project URL", name: "url", widget: "string" }
+
+      # --- Current Projects ---
+      - label: "Current Projects"
+        name: "projects"
+        widget: "list"
+        required: false
+        fields:
+          - { label: "Project Name", name: "name", widget: "string" }
+          - label: "Description"
+            name: "description"
+            widget: "text"
+            hint: "Describe the project goals and methods."
+          - label: "Related Papers"
+            name: "related_papers"
+            widget: "list"
+            required: false
+            hint: "Enter the 'name' slug of each related paper exactly as it appears in the paper file."
+            field: { label: "Paper Slug", name: "paper", widget: "string" }
+
+      # --- Education & Awards ---
+      - label: "Education"
+        name: "education"
+        widget: "list"
+        required: false
+        hint: "Each entry appears as a bullet. Example: PhD, Computer Science, CWRU, 2025"
+        field: { label: "Entry", name: "entry", widget: "string" }
+
+      - label: "Awards and Honors"
+        name: "awards"
+        widget: "list"
+        required: false
+        field: { label: "Award", name: "award", widget: "string" }
+
+      # --- Team ---
+      - label: "Mentors"
+        name: "mentors"
+        widget: "list"
+        required: false
+        hint: "Enter the slug of each mentor exactly. Example: vipin-chaudhary"
+        field: { label: "Mentor Slug", name: "mentor", widget: "string" }
+
+      - label: "Collaborators"
+        name: "collaborators"
+        widget: "list"
+        required: false
+        hint: "Enter the slug of each collaborator exactly."
+        field: { label: "Collaborator Slug", name: "collaborator", widget: "string" }
+
+      # --- Manual Publications Override ---
+      - label: "Manual Publications List"
+        name: "papers"
+        widget: "list"
+        required: false
+        hint: "Leave empty — papers are auto-populated from your slug in each paper file. Only fill this if you want to show a specific subset."
+        field: { label: "Paper Slug", name: "paper", widget: "string" }
+
+  # ===========================================================================
+  # PAPERS
+  # ===========================================================================
+  - name: "papers"
+    label: "Papers"
+    label_singular: "Paper"
+    folder: "_papers"
+    create: true
+    slug: "{{year}}-{{fields.name}}"
+    sortable_fields: ["year", "title"]
+    summary: "{{year}} — {{title}}"
+
+    fields:
+      - label: "Paper Slug (ID)"
+        name: "name"
+        widget: "string"
+        hint: "Unique identifier used for cross-referencing. Lowercase, hyphens only. Example: knee-segmentation. The year is added automatically to the filename."
+        pattern:
+          - "^[a-z0-9-]+$"
+          - "Lowercase letters, numbers, and hyphens only"
+
+      - label: "Title"
+        name: "title"
+        widget: "string"
+
+      - label: "Year"
+        name: "year"
+        widget: "number"
+        value_type: "int"
+        min: 2000
+        max: 2030
+
+      # --- Authors ---
+      - label: "Authors"
+        name: "authors"
+        widget: "list"
+        hint: "Add authors in order. For lab members, also fill in their slug."
+        fields:
+          - label: "Display Name"
+            name: "name"
+            widget: "string"
+            hint: "Full name as it appears on the paper."
+          - label: "Lab Member Slug"
+            name: "slug"
+            widget: "string"
+            required: false
+            hint: "Only for current/former lab members. Must match their profile slug exactly. Leave blank for external co-authors."
+
+      # --- Publication Venue ---
+      - label: "Journal"
+        name: "journal"
+        widget: "string"
+        required: false
+        hint: "Leave blank if this is a conference paper."
+
+      - label: "Conference"
+        name: "conference"
+        widget: "string"
+        required: false
+        hint: "Leave blank if this is a journal article."
+
+      # --- Links ---
+      - label: "DOI"
+        name: "doi"
+        widget: "string"
+        required: false
+        hint: "Just the ID or full URL. Example: 10.1145/3368089.3409704"
+
+      - label: "arXiv"
+        name: "arxiv"
+        widget: "string"
+        required: false
+        hint: "Just the ID or full URL. Example: 2005.12379"
+
+      - label: "OpenReview"
+        name: "openreview"
+        widget: "string"
+        required: false
+        hint: "Just the forum ID or full URL."
+
+      - label: "PDF URL"
+        name: "pdf_url"
+        widget: "string"
+        required: false
+        hint: "External URL to the PDF."
+
+      - label: "PDF File Upload"
+        name: "pdf_file"
+        widget: "file"
+        required: false
+        hint: "Upload PDF directly. Saved to /assets/pdfs/"
+        media_folder: "/assets/pdfs"
+        public_folder: "/assets/pdfs"
+
+      - label: "GitHub (Code)"
+        name: "github"
+        widget: "string"
+        required: false
+        hint: "Repo path or full URL. Example: sumonbis/ML-Fairness"
+
+      - label: "Paper Page"
+        name: "paper_page"
+        widget: "string"
+        required: false
+        hint: "Link to a project page or supplemental site."
+
+      # --- Categorization ---
+      - label: "Research Areas"
+        name: "research_areas"
+        widget: "list"
+        required: false
+        field:
+          label: "Area"
+          name: "area"
+          widget: "select"
+          options:
+            - "High Performance Computing"
+            - "Artificial Intelligence"
+            - "Quantum Computing"
+            - "Healthcare & Medical Imaging"
+            - "Trustworthy AI"
+            - "Data Science"
+            - "Computer Vision"
+            - "Natural Language Processing"
+            - "Robotics"
+            - "Cybersecurity"
+
+      # --- Content ---
+      - label: "Abstract"
+        name: "abstract"
+        widget: "text"
+        required: false
+
+      - label: "BibTeX"
+        name: "bibtex"
+        widget: "text"
+        required: false
+        hint: "Raw BibTeX citation block."
