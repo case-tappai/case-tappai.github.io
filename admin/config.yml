@@ -2,7 +2,7 @@ backend:
   name: github
   repo: case-peatai/case-peatai.github.io
   branch: main
-  site_domain: case-peatai-cms.netlify.app
+  base_url: https://sveltia-cms-auth.sheilamoneracabarique.workers.dev
 
 # Where uploaded images and PDFs are saved
 media_folder: "assets/images"
