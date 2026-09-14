@@ -1,16 +1,43 @@
 <!doctype html>
 <html lang="en">
-  <head>
+ <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{ page.title }} | {{ site.title }}</title>
+
+    <!-- Page Title -->
+    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }} | Case Western Reserve University</title>
+
+    <!-- Search Engine Indexing & Verification -->
+    <meta name="robots" content="index, follow" />
+    <meta name="google-site-verification" content="iu5YQ-TMjTNf77w9Pu2rACfi70SjSrQPijdXq1oAiM8" />
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="{{ site.description }}" />
+    <meta
+      name="keywords"
+      content="TAPPAI, TAPPAI CWRU, Case Western Reserve University, CWRU AI, Computer and Data Sciences, AI Lab Cleveland, PEATAI"
+    />
+    <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}" />
+
+    <!-- Open Graph (Link Previews & Search Snippets) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="{{ site.title }}" />
+    <meta property="og:title" content="{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}" />
+    <meta property="og:description" content="{{ site.description }}" />
+    <meta property="og:url" content="{{ page.url | replace:'index.html','' | absolute_url }}" />
+    <meta
+      property="og:image"
+      content="{{ '/assets/images/CWRU_Sunburst Icon_RGB Blue.png' | absolute_url }}"
+    />
+
+    <!-- Stylesheets & Favicon -->
     <link
       rel="stylesheet"
       href="{{ '/assets/css/style.css' | relative_url }}"
     />
     <link
       rel="icon"
-      type="image/svg+xml"
+      type="image/png"
       href="{{ '/assets/images/CWRU_Sunburst Icon_RGB Blue.png' | relative_url }}"
     />
   </head>
