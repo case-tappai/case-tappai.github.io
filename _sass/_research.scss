@@ -61,7 +61,29 @@
   &.performant  { color: $cwru-dark-blue; }
   &.physical    { color: $cwru-true-blue; }
 
+
   @media (max-width: $bp-small) {
     .pillar-icon { width: 40px; height: 40px; }
   }
+}
+
+// --------------------------------------------------------------------------
+// Color the bold lead-ins, "Current directions" label and callout accent to
+// match each pillar. No wrapper needed: each rule applies to everything after
+// that pillar's heading, and later pillars override earlier ones.
+// Keep these four blocks in the same order as the sections on the page.
+// --------------------------------------------------------------------------
+
+@mixin pillar-accent($name, $color) {
+  .pillar-head.#{$name} ~ ul > li > strong,
+  .pillar-head.#{$name} ~ p > strong:only-child,
+  .pillar-head.#{$name} ~ .heading-line strong { color: $color; }
+  .pillar-head.#{$name} ~ .heading-line { border-left-color: $color; }
+}
+
+.research-page {
+  @include pillar-accent(trustworthy, $cwru-blue);
+  @include pillar-accent(agentic,     $force-blue);
+  @include pillar-accent(performant,  $cwru-dark-blue);
+  @include pillar-accent(physical,    $cwru-true-blue);
 }
