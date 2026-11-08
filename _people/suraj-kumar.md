@@ -23,9 +23,9 @@ linkedin: "https://www.linkedin.com/in/surajkumar42/"                  # Full UR
 google_scholar: "https://scholar.google.com/citations?hl=en&user=thOKmDkAAAAJ&view_op=list_works&gmla=AIqSsVvR-0JxgPLBh0UMfK64fkS3Y4aA8Qb6Lz6TAZwFM7r-KtbJKfPodVcLBOJiMMLFvoqtpR-gTN6nfrQR2k5D"            # Full URL
 
 # --- PROFILE PHOTO ---
-# Place your photo in /assets/images/ and link the path here. 
+# Place your photo in /assets/images/people/ and link the path here. 
 # If left blank, a default avatar will be used.
-image: "/assets/images/suraj-kumar.avif" 
+image: "/assets/images/people/suraj-kumar.avif" 
 
 # --- BIOGRAPHY TABS ---
 # 'intro' appears at the top of the page permanently.

@@ -14,7 +14,7 @@ linkedin: "https://www.linkedin.com/in/nengbo-wang/"
 google_scholar: "https://scholar.google.com/citations?hl=en&user=RTmNJFoAAAAJ"
 
 # --- PROFILE PHOTO ---
-image: "/assets/images/nengbo-wang.png"
+image: "/assets/images/people/nengbo-wang.png"
 
 # --- BIOGRAPHY TABS ---
 intro: |

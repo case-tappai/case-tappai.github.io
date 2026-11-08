@@ -14,7 +14,7 @@ linkedin: "https://www.linkedin.com/in/debargha-ganguly/"
 google_scholar: "https://scholar.google.com/citations?user=mzCrbIIAAAAJ&hl=en"
 
 # --- PROFILE PHOTO ---
-image: "/assets/images/debargha-ganguly.avif"               # TODO: rename your headshot to match
+image: "/assets/images/people/debargha-ganguly.avif"               # TODO: rename your headshot to match
 
 # --- BIOGRAPHY TABS ---
 intro: |

@@ -1,0 +1,67 @@
+// ==========================================================================
+// RESEARCH PAGE
+// Uses variables from _branding.scss; layout width/padding come from .main-content
+// ==========================================================================
+
+.research-page {
+  color: $cwru-dark-blue;
+  line-height: 1.65;
+  padding-bottom: 80px;
+
+  h1 { color: $cwru-blue; margin: 0 0 0.5rem; }
+  h2 { margin: 0; line-height: 1.2; }
+  h3 { margin: 0; font-size: 1.1rem; font-weight: $weight-medium; opacity: 0.7; }
+  hr { border: 0; border-top: 1px solid $light-gray; margin: 3rem 0; }
+  ul { padding-left: 1.2rem; }
+  li { margin-bottom: 0.7rem; }
+
+  .research-intro {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+    gap: 48px;
+    align-items: center;
+    margin: 1rem 0 0;
+
+    figure { margin: 0; }
+
+    .research-intro-text p { font-size: 1.1rem; margin: 0 0 1rem; }
+
+    @media (max-width: $bp-medium) {
+      grid-template-columns: 1fr;
+      gap: 20px;
+      .research-intro-text { order: -1; }
+    }
+  }
+
+  figure {
+    margin: 2rem 0;
+    img { width: 100%; height: auto; display: block; }
+    figcaption { font-size: 0.9rem; color: $dark-gray; margin-top: 0.6rem; text-align: center; }
+  }
+
+  .heading-line {
+    margin-top: 1.5rem;
+    padding: 1rem 1.2rem;
+    border-left: 4px solid $cwru-blue;
+    background: $bg-ghost;
+  }
+}
+
+.pillar-head {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 1.2rem;
+
+  .pillar-icon { width: 52px; height: 52px; flex: none; }
+  h2 { color: inherit; }
+
+  &.trustworthy { color: $cwru-blue; }
+  &.agentic     { color: $force-blue; }
+  &.performant  { color: $cwru-dark-blue; }
+  &.physical    { color: $cwru-true-blue; }
+
+  @media (max-width: $bp-small) {
+    .pillar-icon { width: 40px; height: 40px; }
+  }
+}

@@ -22,9 +22,9 @@ linkedin: "https://www.linkedin.com/in/kai-ye-86a554273/"                  # Ful
 google_scholar: "https://scholar.google.com/citations?user=k6mAT9AAAAAJ&hl=en&view_op=list_works&sortby=pubdate"            # Full URL
 
 # --- PROFILE PHOTO ---
-# Place your photo in /assets/images/ and link the path here. 
+# Place your photo in /assets/images/people/ and link the path here. 
 # If left blank, a default avatar will be used.
-image: "/assets/images/kai-ye.jpg" 
+image: "/assets/images/people/kai-ye.jpg" 
 
 # --- BIOGRAPHY TABS ---
 # 'intro' appears at the top of the page permanently.

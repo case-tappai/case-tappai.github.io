@@ -5,7 +5,7 @@ slug: shuai-xu
 type: "faculty"
 level: "STAFF"
 role: "Assistant Professor, Department of Computer and Data Sciences, Case School of Engineering"
-image: "/assets/images/shuai-xu.avif"
+image: "/assets/images/people/shuai-xu.avif"
 email: "shuai.xu2@case.edu"
 google_scholar: "https://scholar.google.com/citations?user=wu-vtI4AAAAJ&hl=en&oi=ao"
 office: "702 Olin Building"

@@ -14,7 +14,7 @@ linkedin: "https://www.linkedin.com/in/vikash-singh-john/"
 google_scholar: "https://scholar.google.com/citations?user=zt0c4WsAAAAJ"
 
 # --- PROFILE PHOTO ---
-image: "/assets/images/vikash-singh.png"
+image: "/assets/images/people/vikash-singh.png"
 
 # --- BIOGRAPHY TABS ---
 intro: |

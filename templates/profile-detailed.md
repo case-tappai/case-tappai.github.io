@@ -23,9 +23,9 @@ linkedin: ""                  # Full URL
 google_scholar: ""            # Full URL
 
 # --- PROFILE PHOTO ---
-# Place your photo in /assets/images/ and link the path here. 
+# Place your photo in /assets/images/people/ and link the path here. 
 # If left blank, a default avatar will be used.
-image: "/assets/images/your-name.avif" 
+image: "/assets/images/people/your-name.avif" 
 
 # --- BIOGRAPHY TABS ---
 # 'intro' appears at the top of the page permanently.

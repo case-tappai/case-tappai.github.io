@@ -10,5 +10,5 @@ mentors: ["vipin-chaudhary"]
 personal_site: https://mecaneer23.net
 linkedin: https://www.linkedin.com/in/gabriel-natenshon/
 github: https://github.com/mecaneer23
-image: /assets/images/gabriel-natenshon.avif
+image: /assets/images/people/gabriel-natenshon.avif
 ---

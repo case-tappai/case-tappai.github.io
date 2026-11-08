@@ -5,7 +5,7 @@ type: "faculty"
 slug: vipin-chaudhary
 role: "Kevin J. Kranzusch Chair, Computer and Data Sciences, <br> Center for PEATAI, Case School of Engineering"
 dept_url:  "https://engineering.case.edu/computer-and-data-sciences"
-image: "/assets/images/Vipin Chaudhary.avif"
+image: "/assets/images/people/Vipin Chaudhary.avif"
 email: "vipin@case.edu"
 phone: "216.368.0171"
 office: "803D Olin Building"

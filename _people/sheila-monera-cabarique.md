@@ -11,7 +11,7 @@ email: "sxm1774@case.edu"
 # personal_site: ""             # URL to your personal site/portfolio or university directory
 linkedin: "https://www.linkedin.com/in/smoneracabarique/"                 
 
-image: "/assets/images/sheila-monera-cabarique.jpg" 
+image: "/assets/images/people/sheila-monera-cabarique.jpg" 
 
 # --- BIOGRAPHY TABS ---
 # 'intro' appears at the top of the page permanently.

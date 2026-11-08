@@ -12,7 +12,7 @@ twitter: ""
 linkedin: "https://www.linkedin.com/in/mohsenhr"
 google_scholar: "https://scholar.google.com/citations?hl=en&user=5bsUuE4AAAAJ"
 
-image: "/assets/images/mohsen-hariri.webp"
+image: "/assets/images/people/mohsen-hariri.webp"
 
 intro: |
   I'm an AI Scientist in the Department of Computer and Data Sciences at Case Western Reserve University. I'm trying to improve the reasoning capabilities and efficiency of large language models.

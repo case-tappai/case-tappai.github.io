@@ -22,9 +22,9 @@ linkedin: "https://www.linkedin.com/in/yunlai-zhou/"                  # Full URL
 google_scholar: "https://scholar.google.com/citations?user=ytck1QsAAAAJ&hl=zh-CN"            # Full URL
 
 # --- PROFILE PHOTO ---
-# Place your photo in /assets/images/ and link the path here. 
+# Place your photo in /assets/images/people/ and link the path here. 
 # If left blank, a default avatar will be used.
-image: "/assets/images/yunlai-zhou.PNG" 
+image: "/assets/images/people/yunlai-zhou.PNG" 
 
 # --- BIOGRAPHY TABS ---
 # 'intro' appears at the top of the page permanently.

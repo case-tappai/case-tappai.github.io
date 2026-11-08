@@ -14,9 +14,9 @@ linkedin: "https://www.linkedin.com/in/sumonb"                  # Full URL
 google_scholar: "https://scholar.google.com/citations?hl=en&tzom=240&user=SD5GRJ4AAAAJ"            # Full URL
 
 # --- PROFILE PHOTO ---
-# Place your photo in /assets/images/ and link the path here. 
+# Place your photo in /assets/images/people/ and link the path here. 
 # If left blank, a default avatar will be used.
-image: "/assets/images/sumon-biswas.jpeg" 
+image: "/assets/images/people/sumon-biswas.jpeg" 
 
 # --- BIOGRAPHY TABS ---
 # 'intro' appears at the top of the page permanently.

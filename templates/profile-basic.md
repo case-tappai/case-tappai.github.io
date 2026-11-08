@@ -8,9 +8,9 @@ level: "PHD"                  # REQUIRED: Options are "STAFF", "PHD", "MS", or "
 role: "Your Title"            # REQUIRED: e.g., "PhD Student" or "AI Researcher". This appears under your name on the profile page.
 
 # --- PROFILE PHOTO ---
-# Place your photo in /assets/images/ and link the path here. 
+# Place your photo in /assets/images/people/ and link the path here. 
 # If left blank, a default avatar will be used.
-image: "/assets/images/your-name.avif" 
+image: "/assets/images/people/your-name.avif" 
 
 mentors: ["vipin-chaudhary"]  # mentors: For students, list your advisor(s)' slug (e.g., ["vipin-chaudhary"])
 

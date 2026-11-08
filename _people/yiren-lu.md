@@ -23,9 +23,9 @@ linkedin: "https://www.linkedin.com/in/yiren-lu-631798183/"                  # F
 google_scholar: "https://scholar.google.com/citations?user=8euSVtcAAAAJ"            # Full URL
 
 # --- PROFILE PHOTO ---
-# Place your photo in /assets/images/ and link the path here. 
+# Place your photo in /assets/images/people/ and link the path here. 
 # If left blank, a default avatar will be used.
-image: "/assets/images/yiren-lu.jpeg" 
+image: "/assets/images/people/yiren-lu.jpeg" 
 
 # --- BIOGRAPHY TABS ---
 # 'intro' appears at the top of the page permanently.

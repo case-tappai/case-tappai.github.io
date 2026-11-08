@@ -5,7 +5,7 @@ type: "faculty"
 level: "STAFF"
 slug: sanmukh-kuppannagari
 role: "James C. Wyant Assistant Professor, Department of Computer and Data Sciences, Case School of Engineering"
-image: "/assets/images/sanmukh-kuppannagari.avif"
+image: "/assets/images/people/sanmukh-kuppannagari.avif"
 email: "sanmukh.kuppannagari@case.edu"
 phone: "216.368.0755"
 office: "506 Olin Building"

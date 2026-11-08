@@ -21,9 +21,9 @@ personal_site: "https://vedantgupta.vercel.app/"             # URL to your perso
 linkedin: "https://www.linkedin.com/in/vedantgupta1224/"                  # Full URL
 
 # --- PROFILE PHOTO ---
-# Place your photo in /assets/images/ and link the path here. 
+# Place your photo in /assets/images/people/ and link the path here. 
 # If left blank, a default avatar will be used.
-image: "/assets/images/vedant-gupta.png" 
+image: "/assets/images/people/vedant-gupta.png" 
 
 # --- BIOGRAPHY TABS ---
 # 'intro' appears at the top of the page permanently.

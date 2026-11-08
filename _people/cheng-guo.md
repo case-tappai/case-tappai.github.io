@@ -22,9 +22,9 @@ linkedin: "https://www.linkedin.com/in/gc1206/" # Full URL
 google_scholar: "https://scholar.google.com/citations?user=tE7TkaIAAAAJ&hl=en" # Full URL
 
 # --- PROFILE PHOTO ---
-# Place your photo in /assets/images/ and link the path here. 
+# Place your photo in /assets/images/people/ and link the path here. 
 # If left blank, a default avatar will be used.
-image: "/assets/images/ChengGuoProfile.avif" 
+image: "/assets/images/people/ChengGuoProfile.avif" 
 
 # --- BIOGRAPHY TABS ---
 # 'intro' appears at the top of the page permanently.

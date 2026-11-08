@@ -14,7 +14,7 @@ linkedin: "https://www.linkedin.com/in/disheng-liu-064847221"
 google_scholar: "https://scholar.google.com/citations?user=xlIBwREAAAAJ&hl=en"
 
 # --- PROFILE PHOTO ---
-image: "/assets/images/disheng-liu.png"
+image: "/assets/images/people/disheng-liu.png"
 
 # --- BIOGRAPHY TABS ---
 intro: |

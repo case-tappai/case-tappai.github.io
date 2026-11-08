@@ -14,9 +14,9 @@ linkedin: "https://www.linkedin.com/in/biyao-zhang-954303120"                  #
 # google_scholar: ""            # Full URL
 
 # --- PROFILE PHOTO ---
-# Place your photo in /assets/images/ and link the path here. 
+# Place your photo in /assets/images/people/ and link the path here. 
 # If left blank, a default avatar will be used.
-image: "/assets/images/biyao-zhang.avif" 
+image: "/assets/images/people/biyao-zhang.avif" 
 
 # --- BIOGRAPHY TABS ---
 # 'intro' appears at the top of the page permanently.

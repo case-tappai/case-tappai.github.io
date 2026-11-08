@@ -23,9 +23,9 @@ linkedin: "https://www.linkedin.com/in/alanyluo"                                
 google_scholar: "https://scholar.google.com/citations?user=CQBC3WgAAAAJ&hl=en"    # Full URL
 
 # --- PROFILE PHOTO ---
-# Place your photo in /assets/images/ and link the path here. 
+# Place your photo in /assets/images/people/ and link the path here. 
 # If left blank, a default avatar will be used.
-# image: "/assets/images/alan-luo.jpg"
+# image: "/assets/images/people/alan-luo.jpg"
 
 # --- BIOGRAPHY TABS ---
 # 'intro' appears at the top of the page permanently.
