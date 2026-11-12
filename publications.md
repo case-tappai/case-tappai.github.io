@@ -11,12 +11,15 @@ title: Publications & Code
     <div class="filters-container">
       <div class="paper-filters">
         <span class="filter-label">Filter by research area:</span>
-        <button class="filter-btn active" onclick="filterPapers('all')">All Papers</button>
-        <button class="filter-btn" onclick="filterPapers('quantum-computing')">Quantum Computing</button>
-        <button class="filter-btn" onclick="filterPapers('artificial-intelligence')">Artificial Intelligence</button>
-        <button class="filter-btn" onclick="filterPapers('high-performance-computing')">High Performance Computing</button>
-        <button class="filter-btn" onclick="filterPapers('medical-imaging')">Medical Imaging</button>
-        <button class="filter-btn" onclick="filterPapers('data-science')">Data Science</button>
+        <button class="filter-btn active" data-filter="all" onclick="filterPapers('all', this)">All Papers</button>
+        <button class="filter-btn" data-filter="trustworthy-ai" onclick="filterPapers('trustworthy-ai', this)">Trustworthy AI</button>
+        <button class="filter-btn" data-filter="artificial-intelligence" onclick="filterPapers('artificial-intelligence', this)">Artificial Intelligence</button>
+        <button class="filter-btn" data-filter="high-performance-computing" onclick="filterPapers('high-performance-computing', this)">High Performance Computing</button>
+        <button class="filter-btn" data-filter="quantum-computing" onclick="filterPapers('quantum-computing', this)">Quantum Computing</button>
+        <button class="filter-btn" data-filter="computer-vision" onclick="filterPapers('computer-vision', this)">Computer Vision</button>
+        <button class="filter-btn" data-filter="medical-imaging" onclick="filterPapers('medical-imaging', this)">Medical Imaging</button>
+        <button class="filter-btn" data-filter="materials-science" onclick="filterPapers('materials-science', this)">Materials Science</button>
+        <button class="filter-btn" data-filter="data-science" onclick="filterPapers('data-science', this)">Data Science</button>
       </div>
 
       <div class="year-filter-container">
@@ -54,72 +57,4 @@ title: Publications & Code
   </div>
 </div>
 
-<script>
-// Store current filters
-let currentAreaFilter = 'all';
-let currentYearFilter = 'all';
-
-function filterPapers(filter) {
-  console.log('Filtering by area: ' + filter);
-  currentAreaFilter = filter;
-  
-  // Update button styling
-  const buttons = document.querySelectorAll('.filter-btn');
-  buttons.forEach(btn => {
-    btn.classList.remove('active');
-  });
-  
-  // Find and activate the clicked button
-  event.target.classList.add('active');
-  
-  // Apply both filters
-  applyFilters();
-}
-
-function filterByYear(year) {
-  console.log('Filtering by year: ' + year);
-  currentYearFilter = year;
-  
-  // Apply both filters
-  applyFilters();
-}
-
-function applyFilters() {
-  // Get all paper items and year groups
-  const papers = document.querySelectorAll('.paper-item');
-  const yearGroups = document.querySelectorAll('.papers-year-group');
-  
-  console.log('Applying filters - Area: ' + currentAreaFilter + ', Year: ' + currentYearFilter);
-  
-  // Loop through all papers
-  papers.forEach(paper => {
-    const areas = paper.getAttribute('data-areas') || '';
-    const yearGroup = paper.closest('.papers-year-group');
-    const year = yearGroup ? yearGroup.getAttribute('data-year').trim() : '';
-    
-    console.log('Paper year: "' + year + '", filter year: "' + currentYearFilter + '"');
-    
-    // Check if paper matches both filters
-    let areaMatch = (currentAreaFilter === 'all') || areas.includes(currentAreaFilter);
-    let yearMatch = (currentYearFilter === 'all') || (String(year) === String(currentYearFilter));
-    
-    console.log('Area match: ' + areaMatch + ', Year match: ' + yearMatch);
-    
-    if (areaMatch && yearMatch) {
-      paper.style.display = 'block';
-    } else {
-      paper.style.display = 'none';
-    }
-  });
-  
-  // Hide year groups that have no visible papers
-  yearGroups.forEach(group => {
-    const visibleInGroup = Array.from(group.querySelectorAll('.paper-item')).filter(p => p.style.display !== 'none').length;
-    if (visibleInGroup === 0) {
-      group.style.display = 'none';
-    } else {
-      group.style.display = 'block';
-    }
-  });
-}
-</script>
+<script src="{{ '/assets/js/paper-filters.js' | relative_url }}"></script>

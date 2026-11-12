@@ -366,3 +366,267 @@
     }
   }
 }
+
+
+// ==========================================================================
+// PILLAR SLIDER & COMPACT PAPER CARDS (Research Page)
+// ==========================================================================
+
+.pillar-papers-widget {
+  margin: 1.75rem 0 0.5rem;
+  --pillar-accent: #{$cwru-blue};
+
+  &.pillar-trustworthy { --pillar-accent: #{$cwru-blue}; }
+  &.pillar-agentic     { --pillar-accent: #{$force-blue}; }
+  &.pillar-performant  { --pillar-accent: #{$cwru-dark-blue}; }
+  &.pillar-physical    { --pillar-accent: #{$cwru-true-blue}; }
+
+  .pillar-widget-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+
+    .pillar-widget-label {
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--pillar-accent);
+    }
+
+    .slider-controls {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      .slider-btn {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        border: 1px solid $light-gray;
+        background: $white;
+        color: $cwru-blue;
+        font-weight: 700;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s ease;
+
+        &:hover {
+          background: var(--pillar-accent);
+          border-color: var(--pillar-accent);
+          color: $white;
+        }
+      }
+
+      .slider-dots {
+        display: flex;
+        gap: 6px;
+
+        .slider-dot {
+          width: 8px;
+          height: 8px;
+          padding: 0;
+          border-radius: 50%;
+          border: none;
+          background: $light-gray;
+          cursor: pointer;
+          transition: all 0.2s ease;
+
+          &.active {
+            background: var(--pillar-accent);
+            transform: scale(1.25);
+          }
+        }
+      }
+    }
+  }
+
+  .pillar-slider-viewport {
+    overflow: hidden;
+    width: 100%;
+    padding: 4px 0 8px;
+  }
+
+  .pillar-slider-track {
+    display: flex;
+    align-items: stretch;
+    transition: transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+    margin: 0 -10px;
+  }
+
+  .pillar-slider-slide {
+    flex: 0 0 33.3333%;
+    max-width: 33.3333%;
+    padding: 0 10px;
+    box-sizing: border-box;
+    display: flex;
+
+    @media (max-width: $bp-large) {
+      flex: 0 0 50%;
+      max-width: 50%;
+    }
+
+    @media (max-width: 576px) {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+  }
+
+  .pillar-widget-footer {
+    margin-top: 8px;
+    display: flex;
+    justify-content: flex-end;
+
+    .see-all-publications-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--pillar-accent);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: all 0.2s ease;
+
+      &:hover {
+        border-bottom-color: var(--pillar-accent);
+        transform: translateX(3px);
+      }
+    }
+  }
+}
+
+.research-paper-card-compact {
+  width: 100%;
+  height: 100%;
+  min-height: 215px;
+  background: $white;
+  border: 1px solid $light-gray;
+  border-top: 4px solid var(--pillar-accent, #{$cwru-blue});
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  transition: all 0.25s ease;
+
+  &:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+  }
+
+  .compact-card-top {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .compact-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 8px;
+
+    .compact-paper-title {
+      margin: 0;
+      font-size: 0.96rem;
+      font-weight: 700;
+      line-height: 1.35;
+      color: $cwru-blue;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .compact-paper-year {
+      background: $cwru-light-blue;
+      color: $cwru-blue;
+      padding: 2px 9px;
+      border-radius: 12px;
+      font-size: 0.74rem;
+      font-weight: 700;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+  }
+
+  .compact-paper-authors {
+    margin: 0;
+    font-size: 0.83rem;
+    line-height: 1.38;
+    color: #555;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+
+    a.author-link {
+      color: $cwru-blue;
+      font-weight: 600;
+      text-decoration: none;
+
+      &:hover {
+        color: $cwru-true-blue;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .compact-paper-venue {
+    margin: 0;
+    font-size: 0.79rem;
+    font-weight: 600;
+    line-height: 1.35;
+    color: $cwru-true-blue;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .compact-paper-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding-top: 10px;
+    margin-top: 12px;
+    border-top: 1px solid $light-gray;
+    min-height: 36px;
+    align-items: center;
+
+    .paper-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px 9px;
+      background: $cwru-blue;
+      color: $white;
+      text-decoration: none;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      transition: all 0.2s ease;
+
+      svg {
+        width: 13px;
+        height: 13px;
+        stroke-width: 2;
+      }
+
+      &:hover {
+        background: $cwru-true-blue;
+        transform: translateY(-1px);
+      }
+
+      &.pdf-link        { background: #d32f2f; &:hover { background: #b71c1c; } }
+      &.arxiv-link      { background: #b31b1b; &:hover { background: #8b0000; } }
+      &.openreview-link { background: #8c1b13; &:hover { background: #6d150f; } }
+      &.external-link   { background: #666666; &:hover { background: #444444; } }
+    }
+  }
+}

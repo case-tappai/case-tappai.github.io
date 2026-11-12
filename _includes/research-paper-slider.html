@@ -1,0 +1,53 @@
+{% assign target_tags = include.match_tags | split: "," %}
+{% assign max_items = include.limit | default: 9 %}
+{% assign sorted_papers = site.papers | sort: "year" | reverse %}
+
+{% assign matched_papers = "" | split: "" %}
+{% for paper in sorted_papers %}
+  {% assign is_match = false %}
+  {% if paper.research_areas %}
+    {% for area in paper.research_areas %}
+      {% assign area_slug = area | slugify %}
+      {% for t in target_tags %}
+        {% assign clean_t = t | strip %}
+        {% if area_slug == clean_t %}
+          {% assign is_match = true %}
+        {% endif %}
+      {% endfor %}
+    {% endfor %}
+  {% endif %}
+  {% if is_match %}
+    {% assign matched_papers = matched_papers | push: paper %}
+  {% endif %}
+{% endfor %}
+
+{% if matched_papers.size > 0 %}
+<div class="pillar-papers-widget pillar-{{ include.pillar }}" data-slider-id="{{ include.pillar }}">
+  <div class="pillar-widget-header">
+    <span class="pillar-widget-label">Recent Publications</span>
+    {% if matched_papers.size > 3 %}
+    <div class="slider-controls">
+      <button type="button" class="slider-btn slider-prev" aria-label="Previous publications" onclick="slidePillarPapers('{{ include.pillar }}', -1)">&#8592;</button>
+      <div class="slider-dots" id="dots-{{ include.pillar }}"></div>
+      <button type="button" class="slider-btn slider-next" aria-label="Next publications" onclick="slidePillarPapers('{{ include.pillar }}', 1)">&#8594;</button>
+    </div>
+    {% endif %}
+  </div>
+
+  <div class="pillar-slider-viewport">
+    <div class="pillar-slider-track" id="track-{{ include.pillar }}">
+      {% for paper in matched_papers limit: max_items %}
+      <div class="pillar-slider-slide">
+        {% include research-paper-card-compact.html paper=paper %}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="pillar-widget-footer">
+    <a href="{{ '/publications/' | relative_url }}?area={{ include.filter_slug }}" class="see-all-publications-link">
+      See all related publications &rarr;
+    </a>
+  </div>
+</div>
+{% endif %}

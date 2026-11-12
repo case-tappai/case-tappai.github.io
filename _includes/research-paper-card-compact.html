@@ -1,0 +1,81 @@
+<div class="research-paper-card-compact">
+  <div class="compact-card-top">
+    <div class="compact-card-header">
+      <h4 class="compact-paper-title">{{ include.paper.title }}</h4>
+      {% if include.paper.year %}
+      <span class="compact-paper-year">{{ include.paper.year }}</span>
+      {% endif %}
+    </div>
+
+    {% if include.paper.authors %}
+    <p class="compact-paper-authors">
+      {%- for author in include.paper.authors -%}
+        {%- if author.slug -%}
+          {%- assign member = site.people | where: "slug", author.slug | first -%}
+          {%- if member -%}
+            <a href="{{ site.baseurl }}{{ member.url }}" class="author-link">{{ author.name }}</a>
+          {%- else -%}
+            {{ author.name }}
+          {%- endif -%}
+        {%- else -%}
+          {{ author.name }}
+        {%- endif -%}
+        {%- unless forloop.last -%}, {% endunless -%}
+      {%- endfor -%}
+    </p>
+    {% endif %}
+
+    {% assign venue = include.paper.conference | default: include.paper.journal | strip %}
+    {% if venue != "" and venue != nil %}
+    <p class="compact-paper-venue">{{ venue }}</p>
+    {% endif %}
+  </div>
+
+  <div class="compact-paper-links">
+    {% assign pdf = include.paper.pdf_url | strip %}
+    {% if pdf != "" and pdf != nil %}
+    <a href="{{ pdf }}" class="paper-link pdf-link" target="_blank" title="Download PDF">
+      {% include icons/file-text.svg %} PDF
+    </a>
+    {% endif %}
+
+    {% assign doi = include.paper.doi | strip %}
+    {% if doi != "" and doi != nil %}
+    {% assign doi_id = doi | remove: "https://doi.org/" | remove: "http://doi.org/" | remove: "doi.org/" %}
+    <a href="https://doi.org/{{ doi_id }}" class="paper-link doi-link" target="_blank" title="View on DOI">
+      {% include icons/external-link.svg %} DOI
+    </a>
+    {% endif %}
+
+    {% assign arxiv = include.paper.arxiv | strip %}
+    {% if arxiv != "" and arxiv != nil %}
+    {% assign arxiv_id = arxiv | remove: "https://arxiv.org/abs/" | remove: "http://arxiv.org/abs/" | remove: "arxiv.org/abs/" %}
+    <a href="https://arxiv.org/abs/{{ arxiv_id }}" class="paper-link arxiv-link" target="_blank" title="View on arXiv">
+      {% include icons/external-link.svg %} arXiv
+    </a>
+    {% endif %}
+
+    {% assign openreview = include.paper.openreview | strip %}
+    {% if openreview != "" and openreview != nil %}
+    {% assign openreview_id = openreview | remove: "https://openreview.net/forum?id=" | remove: "http://openreview.net/forum?id=" | remove: "openreview.net/forum?id=" %}
+    <a href="https://openreview.net/forum?id={{ openreview_id }}" class="paper-link openreview-link" target="_blank" title="View on OpenReview">
+      {% include icons/external-link.svg %} OpenReview
+    </a>
+    {% endif %}
+
+    {% assign github = include.paper.github | strip %}
+    {% if github != "" and github != nil %}
+    {% assign github_path = github | remove: "https://github.com/" | remove: "http://github.com/" | remove: "github.com/" %}
+    <a href="https://github.com/{{ github_path }}" class="paper-link github-link" target="_blank" title="View Code">
+      {% include icons/github.svg %} Code
+    </a>
+    {% endif %}
+
+    {% assign page_link = include.paper.paper_page | strip %}
+    {% if page_link != "" and page_link != nil %}
+    <a href="{{ page_link }}" class="paper-link external-link" target="_blank" title="View Online">
+      {% include icons/external-link.svg %} View
+    </a>
+    {% endif %}
+  </div>
+</div>

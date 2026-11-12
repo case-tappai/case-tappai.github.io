@@ -15,9 +15,9 @@ permalink: /research/
   </figure>
 
   <div class="research-intro-text" markdown="1">
-AI is moving out of the benchmark and into hospitals, factories, power grids, laboratories, and vehicles. That move changes what counts as progress. In these settings, accuracy alone is not enough. Models have to hold up when data shifts, act on their own without drifting off course, run efficiently where they are deployed, and stay grounded in the physical world.
+Artificial intelligence is moving out of the benchmark and into the world: into hospitals, factories, power grids, laboratories, and vehicles. That move changes what counts as progress. A model that is merely accurate is not enough; it has to be reliable when data shifts, capable of acting on its own without losing the plot, efficient enough to run where it is needed, and grounded in physical reality.
 
-TAPPAI organizes its research around these four demands. Each is a research program in its own right, and each is strongest where it overlaps with the others.
+TAPPAI organizes its work around these four demands. Each is a research program in its own right, and each is strongest where it overlaps with the others.
   </div>
 </div>
 
@@ -29,20 +29,9 @@ TAPPAI organizes its research around these four demands. Each is a research prog
   <div class="heading-text"><h2>Trustworthy AI</h2><h3>Systems that know their limits</h3></div>
 </div>
 
-Trust cannot be added to a finished model as a disclaimer. It is a property you design in, measure, and verify. We build methods that let a system recognize inputs it should not answer, quantify its own uncertainty, resist adversaries, and carry guarantees that survive contact with deployment.
+Trust is a property you design in, measure, and verify, not a disclaimer added to a finished model. We build systems that recognize inputs they should not answer, quantify their own uncertainty, and carry guarantees that survive deployment — spanning out-of-distribution detection built on typicality rather than blocklists, Bayesian evaluation for reasoning models, formal verification of fairness and safety properties, causal grounding that separates mechanism from correlation, defenses across the model supply chain, privacy-preserving analysis of clinical and genomic data, and real-time anomaly detection on production infrastructure. We are working toward verification and uncertainty quantification that scale to agentic systems, so that guarantees hold across a chain of autonomous decisions and not just a single prediction.
 
-**Current directions**
-
-- **Knowing the unknown.** Out-of-distribution and anomaly detection based on typicality rather than blocklists. By learning what normal looks like, a system can flag novelty, jailbreaks, and synthetic content on its own. Recent work in this area sharply reduces false alarms and transfers across languages without retraining.
-- **Evaluation you can bet on.** Benchmarks and metrics are infrastructure. We develop Bayesian and uncertainty-aware evaluation for reasoning models under test-time scaling, and expose where popular protocols produce unstable or misleading rankings.
-- **Formal guarantees.** Verification of fairness and safety properties in neural networks and ML-enabled systems, including long-horizon effects such as feedback loops that only become visible after deployment.
-- **Causal grounding.** Causal graphs and causal benchmarks that separate genuine mechanism from spurious correlation in retrieval, reasoning, and visual understanding.
-- **Security and privacy.** Attack surfaces in the modern model supply chain, including poisoned adapters, retrieval spoofing, and weight extraction, along with privacy-preserving frameworks used on real genomic and clinical data.
-- **Trustworthy infrastructure.** Unsupervised, real-time anomaly detection on production HPC and AI system logs, where a false alert is expensive and a missed failure is worse.
-
-<div class="heading-line" markdown="1">
-**Where we're heading:** We are working toward verification and uncertainty quantification that scale to agentic systems, so that guarantees hold across a chain of autonomous decisions and not just a single prediction.
-</div>
+{% include research-paper-slider.html pillar="trustworthy" match_tags="trustworthy-ai" filter_slug="trustworthy-ai" limit=9 %}
 
 ---
 
@@ -51,19 +40,9 @@ Trust cannot be added to a finished model as a disclaimer. It is a property you 
   <div class="heading-text"><h2>Agentic AI</h2><h3>Systems that act</h3></div>
 </div>
 
-The interesting failures of AI are no longer single wrong answers. They are long trajectories: an agent retrieves the wrong evidence, commits to it, and compounds the error over twenty steps. We study agents as systems, looking at how they reason, retrieve, use tools, coordinate, and fail, and we build the scaffolding that makes autonomy dependable.
+The interesting failures of AI are no longer single wrong answers but long trajectories, where an agent retrieves the wrong evidence, commits to it, and compounds the error over twenty steps. We study agents as systems — how they reason, retrieve, use tools, coordinate, and fail — and build the scaffolding that makes autonomy dependable: inference-time control of reasoning, retrieval restructured around causal and hierarchical knowledge graphs, deep research agents that do real scientific and engineering work, neuro-symbolic methods that pair language models with formal verification, and guardrails treated as a distribution problem rather than a pattern-matching one. Our aim is agents that carry an explicit account of what they know, what they assume, and when to stop, and scientific agents that can be trusted to run an experiment end to end.
 
-**Current directions**
-
-- **Reasoning and inference-time control.** Understanding what actually drives reasoning ability, including the role of long-context capacity, and using large models to guide small ones at inference time rather than through expensive retraining.
-- **Knowledge for agents.** Retrieval-augmented generation restructured around causal and hierarchical knowledge graphs, so agents reason over relationships instead of surface similarity.
-- **Agents that do real work.** Deep research agents for scientific and engineering workflows. One example is a multi-step data curation pipeline that discovers, synthesizes, and annotates vision datasets using model consensus.
-- **Neuro-symbolic and verified agency.** Coupling language models with formal methods: autoformalization, uncertainty taxonomies for generated specifications, and verification of coding agents and the software they produce.
-- **Safety at the boundary.** Guardrails treated as a distribution problem rather than a pattern-matching problem, and red-teaming of the retrieval and tool interfaces agents depend on.
-
-<div class="heading-line" markdown="1">
-**Where we're heading:** agents that carry an explicit account of what they know, what they assume, and when to stop, and scientific agents that can be trusted to run an experiment end to end.
-</div>
+{% include research-paper-slider.html pillar="agentic" match_tags="agentic-ai,artificial-intelligence" filter_slug="artificial-intelligence" limit=9 %}
 
 ---
 
@@ -74,26 +53,15 @@ The interesting failures of AI are no longer single wrong answers. They are long
   <div class="heading-text"><h2>Performant AI</h2><h3>Systems that scale</h3></div>
 </div>
 
-Capability that cannot be afforded is capability that will not be deployed. Our performance work covers the full stack: algorithms, compilers and kernels, GPU and accelerator scheduling, distributed training, and the cyberinfrastructure that ties edge, cloud, and supercomputer into one continuum. The goal is not benchmark throughput for its own sake. It is to put frontier capability within reach of a clinic, a classroom, or a single lab.
+Capability that cannot be afforded is capability that will not be deployed, so our work runs the full stack: lossless and near-lossless compression, asymmetric KV-cache quantization and structured pruning, hardware-aware kernels and sparse attention scheduling, performance models that forecast distributed training cost before provisioning, and memory-efficient training and adaptation. Through national efforts including the NSF ICICLE institute, we treat edge devices, clusters, cloud, supercomputers, and quantum processors as a single continuum rather than separate worlds, with circuit cutting, parallel job scheduling, and hardware-aware synthesis preparing for the point when quantum resources join it. The goal is an execution stack where efficiency, reliability, and energy cost are first-class design objectives rather than afterthoughts, putting frontier capability within reach of a clinic, a classroom, or a single lab.
 
 <figure>
   <img src="{{ '/assets/images/research/tappai-continuum.svg' | relative_url }}"
        alt="A single band running from sensors and edge devices through lab clusters, cloud and national supercomputers to quantum processors. Workloads and data move toward compute; trained models and capability move back out.">
-  <figcaption>We treat edge devices, clusters, cloud, supercomputers and quantum processors as one continuum rather than separate worlds.</figcaption>
+  <figcaption>We treat edge devices, clusters, cloud, supercomputers, and quantum processors as one continuum rather than separate worlds.</figcaption>
 </figure>
 
-**Current directions**
-
-- **Compression without compromise.** Lossless and near-lossless model compression, asymmetric KV-cache quantization, and structured pruning methods that deliver immediate, hardware-friendly savings.
-- **Hardware-aware execution.** Sparse attention scheduling, irregular convolution deployment, and tile- and topology-aware optimization that align computation with real GPU behavior.
-- **Predicting before provisioning.** Fine-grained performance models for distributed LLM training that forecast end-to-end cost across parallelization strategies without full-scale trial runs.
-- **Efficient training and adaptation.** Memory-efficient fine-tuning, unbiased low-memory gradient estimation, and inference methods that cut latency and energy at the edge.
-- **Intelligent cyberinfrastructure.** Through national efforts including the NSF ICICLE institute, plug-and-play "AI-as-a-Service" spanning the edge–cloud–HPC continuum, aimed squarely at democratizing access.
-- **Quantum as an emerging accelerator.** Circuit cutting, parallel job scheduling across modular QPUs, hardware-aware synthesis, and transpilation, in preparation for the point when quantum resources join the same continuum.
-
-<div class="heading-line" markdown="1">
-**Where we're heading:** an execution stack where a model's efficiency, reliability, and energy cost are first-class design objectives rather than afterthoughts.
-</div>
+{% include research-paper-slider.html pillar="performant" match_tags="high-performance-computing,hpc,quantum-computing" filter_slug="high-performance-computing" limit=9 %}
 
 ---
 
@@ -103,20 +71,9 @@ Capability that cannot be afforded is capability that will not be deployed. Our 
   <div class="heading-text"><h2>Physical AI</h2><h3>Systems that meet the world</h3></div>
 </div>
 
-Physical AI is where the other three are tested. Sensors are noisy, environments shift, latency is a safety property, and the cost of being wrong is measured in something other than accuracy points. We work on perception, spatial reasoning, and embodied decision-making for robots, vehicles, instruments, and clinical imaging, as well as on the scientific domains where AI meets measurement.
+Physical AI is where the other three are tested: sensors are noisy, environments shift, latency is a safety property, and the cost of being wrong is measured in something other than accuracy points. We work on perception, spatial reasoning, and embodied decision-making — closing the spatial reasoning gap in vision-language models, real-time trajectory prediction for autonomous vehicles, zero-shot and unsupervised segmentation of 3D medical images with clinical partners, automated characterization for materials science, speech and hearing research including multilingual assessment materials, and vision models restructured to run within the latency and energy budgets of embedded hardware. We are building toward foundation models for the physical world that are grounded in measurement, calibrated about their own uncertainty, and efficient enough to run on the device that has to act.
 
-**Current directions**
-
-- **Spatial and embodied intelligence.** Diagnosing and closing the spatial reasoning gap in vision-language models, so that systems understand geometry, viewpoint, and 3D structure rather than describing pictures.
-- **Autonomy in motion.** Real-time trajectory prediction and online learning for autonomous vehicles under strict latency budgets, and robotics platforms for embodied experimentation.
-- **AI for medicine.** Zero-shot and unsupervised segmentation of 3D medical images, generative models for lesion detection, and spatial grounding for clinical vision-language models. This work is developed with clinical partners and evaluated on clinical questions.
-- **AI for materials and manufacturing.** Automated phase identification from synchrotron diffraction, defect segmentation, and distributed data-centric frameworks for materials data science at scale.
-- **Sensing, speech, and human signals.** Speech synthesis and recognition evaluated for clinical audiology and hearing research, including multilingual assessment materials.
-- **Efficiency at the edge.** Vision models restructured to compute only what matters, cutting latency and energy on embedded hardware without retraining.
-
-<div class="heading-line" markdown="1">
-**Where we're heading:** foundation models for the physical world that are grounded in measurement, calibrated about their own uncertainty, and efficient enough to run on the device that has to act.
-</div>
+{% include research-paper-slider.html pillar="physical" match_tags="computer-vision,medical-imaging,autonomous-driving,materials-science" filter_slug="computer-vision" limit=9 %}
 
 ---
 
@@ -136,3 +93,5 @@ TAPPAI brings together faculty and researchers spanning AI and machine learning,
 **Interested in working with us?** [Meet the team]({{ '/faculty' | relative_url }}) · [Browse publications and code]({{ '/publications' | relative_url }})
 
 </div>
+
+<script src="{{ '/assets/js/pillar-slider.js' | relative_url }}"></script>
