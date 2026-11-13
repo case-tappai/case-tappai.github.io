@@ -17,31 +17,39 @@
   overflow: hidden;
 }
 
-/* LEFT SIDE: Image container with strict crop */
+/* LEFT SIDE: Image container anchored left so labels never clip */
 .hero-split-media {
   position: relative;
   width: 50%;
   min-height: 100%;
+  background-color: #ffffff;
 
   img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: left center;
     display: block;
   }
 }
 
-/* Smooth horizontal transition layer fading from the picture to the text background */
+/* Smooth cubic-eased transition dissolving the white canvas into the navy pane */
 .hero-fade-overlay {
   position: absolute;
   top: 0;
-  left: 0;
-  width: 100%;
+  right: 0;
+  width: 10%;
   height: 100%;
+  pointer-events: none;
   background: linear-gradient(
     to right,
     rgba(10, 48, 94, 0) 0%,
-    rgba(10, 48, 94, 0.3) 70%,
+    rgba(10, 48, 94, 0.015) 18%,
+    rgba(10, 48, 94, 0.06) 34%,
+    rgba(10, 48, 94, 0.16) 50%,
+    rgba(10, 48, 94, 0.34) 65%,
+    rgba(10, 48, 94, 0.58) 78%,
+    rgba(10, 48, 94, 0.82) 90%,
     rgba(10, 48, 94, 1) 100%
   );
 }
@@ -121,20 +129,33 @@
 
   .hero-split-media {
     width: 100%;
-    height: 350px;
+    height: auto;
+
+    img {
+      height: auto;
+      object-fit: contain;
+    }
   }
 
-  /* Fade from top to bottom on mobile layout instead of left to right */
+/* Thin bottom edge fade so it softens the seam without touching "Physical" */
   .hero-fade-overlay {
+    display: block;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: auto;
+    width: 100%;
+    height: 20px;
     background: linear-gradient(
       to bottom,
       rgba(10, 48, 94, 0) 0%,
+      rgba(10, 48, 94, 0.25) 50%,
       rgba(10, 48, 94, 1) 100%
     );
   }
 
   .hero-split-content {
     width: 100%;
-    padding: 3rem 2rem;
+    padding: 2.5rem 2rem 3rem;
   }
 }

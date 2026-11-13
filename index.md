@@ -5,7 +5,7 @@ title: Home
 
 <section class="hero-split-fullscreen">
   <div class="hero-split-media">
-    <img src="{{ '/assets/images/robot_picture.jpg' | relative_url }}" alt="TAPPAI Lab Robots">
+    <img src="{{ '/assets/images/tappai-landing-hero.jpeg' | relative_url }}" alt="Trustworthy, Agentic, Performant, and Physical AI streams converging into TAPPAI">
     <div class="hero-fade-overlay"></div>
   </div>
 
